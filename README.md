@@ -8,6 +8,15 @@
 [![No dependencies](https://img.shields.io/badge/dependencies-none-brightgreen)](https://github.com/Kamal-Hussain23/Momentum)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
+## Deliverables at a glance
+
+| # | Deliverable | Value |
+|---|-------------|-------|
+| 1 | Startup name | **Momentum** |
+| 2 | Value proposition | We help busy professionals who study on the side stop feeling "busy but stuck" and finally finish what matters, by narrowing every day down to a single Most Important Task. |
+| 3 | GitHub repository | https://github.com/Kamal-Hussain23/Momentum |
+| 4 | Public deployed URL | https://kamal-hussain23.github.io/Momentum/ |
+
 ## Table of contents
 
 - [Preview](#preview)
@@ -26,7 +35,9 @@
 
 ![Momentum landing page](assets/hero-desktop.png)
 
-> Currently hosted from a Codio box — the URL pattern is
+> **Live site:** [https://kamal-hussain23.github.io/Momentum/](https://kamal-hussain23.github.io/Momentum/) (GitHub Pages, auto-updated on every push).
+>
+> During development it is also served live from a Codio box at the temporary URL
 > `https://${CODIO_HOSTNAME}-3000.codio.io/` while the server is running.
 
 ## The problem it solves
