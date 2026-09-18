@@ -1,0 +1,598 @@
+/* =============================================
+   Design Tokens (from MISSION.md Section 2)
+   ============================================= */
+
+:root {
+  /* Colors */
+  --color-background: #1C1917;
+  --color-surface:    #292524;
+  --color-primary:    #F0A868;
+  --color-secondary:  #F7C890;
+  --color-accent:     #FF7E67;
+  --color-text:       #FAF9F6;
+  --color-text-muted: #A8A29E;
+  --color-on-primary: #1C1917;  /* dark text on ember buttons */
+  --color-primary-wash: rgba(240, 168, 104, 0.1); /* 10% ember fill (button hover) */
+
+  /* Typography */
+  --font-heading: 'Manrope', system-ui, sans-serif;
+  --font-body:    'Inter', system-ui, sans-serif;
+
+  /* Border radius */
+  --radius-sm:   6px;
+  --radius-card: 12px;
+  --radius-pill: 999px;
+
+  /* Spacing scale */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  16px;
+  --space-4:  24px;
+  --space-5:  32px;
+  --space-6:  48px;
+  --space-7:  64px;
+}
+
+/* =============================================
+   Base Reset
+   ============================================= */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-background);
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+/* Visible focus ring for keyboard users */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* =============================================
+   Buttons
+   ============================================= */
+
+.btn {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 1rem;
+  padding: var(--space-2) var(--space-4);
+  border: none;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn--primary {
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+.btn--primary:hover {
+  background-color: var(--color-secondary);
+}
+
+.btn--primary:active {
+  background-color: var(--color-primary);
+  transform: translateY(1px);
+}
+
+.btn--secondary {
+  background-color: transparent;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+}
+
+.btn--secondary:hover {
+  background-color: var(--color-primary-wash);
+}
+
+/* =============================================
+   Navbar
+   ============================================= */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: var(--color-surface);
+}
+
+.navbar__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-3) var(--space-4);
+}
+
+.navbar__brand {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+/* =============================================
+   Hero
+   ============================================= */
+
+.hero {
+  display: flex;
+  flex-direction: column;   /* mobile-first: stack vertically */
+  align-items: center;
+  gap: var(--space-6);
+  text-align: center;
+  padding: var(--space-7) var(--space-4);
+}
+
+.hero__text {
+  max-width: 640px;
+  opacity: 0;                                   /* hidden until the animation runs */
+  animation: rise-in 0.6s ease-out 0.05s forwards;  /* staggers after the navbar */
+}
+
+h1 {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 2.5rem;
+  line-height: 1.2;
+  margin-bottom: var(--space-3);
+}
+
+.hero__subheadline {
+  font-size: 1.125rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-5);
+}
+
+/* =============================================
+   Waitlist form
+   ============================================= */
+
+.waitlist-form__label {
+  display: block;
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-2);
+}
+
+.waitlist-form__row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-2);
+}
+
+.waitlist-form__input {
+  min-width: 0;
+  flex: 1 1 200px;
+  padding: var(--space-2) var(--space-4);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-text-muted);
+  border-radius: var(--radius-pill);
+}
+
+.waitlist-form__input::placeholder {
+  color: var(--color-text-muted);
+}
+
+#waitlist {
+  scroll-margin-top: var(--space-6);
+}
+
+/* =============================================
+   Phone mockup (CSS only, no images)
+   ============================================= */
+
+.phone {
+  width: 260px;
+  padding: var(--space-3);
+  background-color: var(--color-background);
+  border: 1px solid var(--color-text-muted);
+  border-radius: var(--radius-card);
+  opacity: 0;                                       /* hidden until the animation runs */
+  animation: rise-in 0.6s ease-out 0.25s forwards;  /* enters right after the text */
+}
+
+.phone__screen {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-sm);
+  padding: var(--space-4);
+}
+
+.task-card__label {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-2);
+}
+
+.task-card__text {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  margin-bottom: var(--space-3);
+}
+
+.task-card__check {
+  display: inline-block;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--color-primary);
+}
+
+/* =============================================
+   One hero entrance animation (motion budget)
+   ============================================= */
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =============================================
+   Social proof
+   ============================================= */
+
+.social-proof {
+  background-color: var(--color-background);
+  max-width: 640px;
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-4);
+  text-align: center;
+  border-top: 1px solid var(--color-text-muted);
+}
+
+.social-proof__line {
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-4);
+}
+
+.social-proof__line:last-child {
+  margin-bottom: 0;
+}
+
+.social-proof__emphasis {
+  color: var(--color-primary);
+}
+
+/* =============================================
+   Desktop layout
+   ============================================= */
+
+
+
+/* =============================================
+   Feature Highlights / Value Drivers
+   ============================================= */
+
+.feature-highlights {
+  background-color: var(--color-background);
+  max-width: 640px;
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-4);
+  text-align: center;
+}
+
+.feature-highlights__container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.feature-highlight__card {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-card);
+  padding: var(--space-4) var(--space-3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-highlight__card:hover,
+.feature-highlight__card:focus-within {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+}
+
+.feature-highlight__headline {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: var(--color-primary);
+  margin-bottom: var(--space-2);
+}
+
+.feature-highlight__body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+/* =============================================
+   Pricing / Tiers
+   ============================================= */
+
+.pricing {
+  background-color: var(--color-background);
+  max-width: 640px;
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-4);
+  text-align: center;
+}
+
+.pricing__heading {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: var(--color-text);
+  margin-bottom: var(--space-2);
+}
+
+.pricing__body {
+  font-size: 1.125rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-4);
+}
+
+/* =============================================
+   How It Works / Product Demo
+   ============================================= */
+
+.how-it-works {
+  background-color: var(--color-background);
+  max-width: 640px;
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-4);
+  text-align: center;
+}
+
+.how-it-works__heading {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: var(--color-text);
+  margin-bottom: var(--space-5);
+}
+
+.how-it-works__container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);          /* extra room for the step separators */
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0;                   /* remove the <ol> default left indent */
+  list-style: none;
+}
+
+.how-it-works__step {
+  position: relative;           /* anchors the line between steps */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  background-color: var(--color-surface);
+  border-radius: var(--radius-card);
+  padding: var(--space-4) var(--space-3);
+}
+
+/* Vertical separator below every step except the last (mobile) */
+.how-it-works__step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 100%;                    /* starts right under the card */
+  width: 2px;
+  height: var(--space-6);       /* fills the gap up to the next card */
+  background-color: var(--color-primary);
+}
+
+.how-it-works__step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--space-5);    /* 32px, wider than one digit */
+  height: var(--space-5);
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 0.875rem;
+  line-height: 1;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius-sm);
+}
+
+.how-it-works__headline {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: var(--color-primary);
+  margin-bottom: 0;
+}
+
+.how-it-works__body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+/* =============================================
+   FAQ / Objection Handling
+   ============================================= */
+
+.faq {
+  background-color: var(--color-background);
+  max-width: 640px;
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-4);
+  text-align: center;
+}
+
+.faq h2 {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: var(--color-text);
+  margin-bottom: var(--space-5);
+}
+
+.faq__item {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-card);
+  margin-bottom: var(--space-3);
+  overflow: hidden;          /* keeps the answer inside the rounded card */
+  text-align: left;
+}
+
+.faq__question {
+  display: block;
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--color-text);
+  text-align: left;
+  background-color: transparent;
+  border: none;
+  border-radius: var(--radius-card);
+  cursor: pointer;
+}
+
+.faq__question:hover {
+  color: var(--color-primary);
+}
+
+.faq__question[aria-expanded="true"] {
+  color: var(--color-primary);
+}
+
+.faq__panel {
+  max-height: 0;             /* closed: no space, invisible */
+  opacity: 0;
+  overflow: hidden;
+  padding: 0 var(--space-4);
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
+}
+
+.faq__panel--open {
+  max-height: 200px;         /* big enough for any answer, clips nothing */
+  opacity: 1;
+  padding: 0 var(--space-4) var(--space-3);
+}
+
+/* =============================================
+   Footer / Secondary CTAs
+   ============================================= */
+
+.footer {
+  background-color: var(--color-background);
+  max-width: 640px;
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-4);
+  text-align: center;
+  border-top: 1px solid var(--color-text-muted);
+}
+
+.footer h2 {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: var(--color-text);
+  margin-bottom: var(--space-3);
+}
+
+.footer .btn {
+  margin-bottom: var(--space-3);
+}
+
+.footer__brand {
+  color: var(--color-text-muted);
+}
+
+@media (min-width: 900px) {
+  .hero {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    gap: var(--space-6);
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .hero__text {
+    flex: 1;
+  }
+
+  .waitlist-form__row {
+    justify-content: flex-start;
+  }
+
+  .how-it-works {
+    max-width: 1100px;   /* widen so the three steps fit on one row */
+  }
+
+  .how-it-works__container {
+    flex-direction: row;
+    max-width: none;
+  }
+
+  .how-it-works__step {
+    flex: 1;             /* every step the same width */
+  }
+
+  /* Horizontal separator between the steps (desktop) */
+  .how-it-works__step:not(:last-child)::after {
+    left: 100%;          /* starts at the right edge of the card */
+    top: 50%;
+    width: var(--space-6);
+    height: 2px;
+    transform: translateY(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__text,
+  .phone {
+    opacity: 1;
+    animation: none;
+  }
+
+  .feature-highlight__card {
+    transition: none;
+  }
+
+  .feature-highlight__card:hover,
+  .feature-highlight__card:focus-within {
+    transform: none;
+    box-shadow: none;
+  }
+}

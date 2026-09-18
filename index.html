@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Momentum</title>
+
+    <!-- Fonts: Manrope (headings) + Inter (body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Manrope:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+
+    <!-- Navbar -->
+    <header class="navbar">
+      <nav class="navbar__inner">
+        <a class="navbar__brand" href="#">Momentum</a>
+        <a class="btn btn--primary navbar__cta" href="#waitlist">Join the Waitlist</a>
+      </nav>
+    </header>
+
+    <!-- Hero -->
+    <main>
+      <section class="hero">
+        <div class="hero__text">
+          <h1>Stop planning. Start finishing.</h1>
+          <p class="hero__subheadline">
+            Momentum shows you your one Most Important Task each day.
+            One small thing done beats a perfect plan, every time.
+          </p>
+
+          <!-- Waitlist form -->
+          <form id="waitlist" class="waitlist-form" action="#" method="post">
+            <label class="waitlist-form__label" for="waitlist-email">Email address</label>
+            <div class="waitlist-form__row">
+              <input
+                id="waitlist-email"
+                class="waitlist-form__input"
+                type="email"
+                name="email"
+                placeholder="you@example.com"
+                required
+              />
+              <button type="submit" class="btn btn--primary">Join the Waitlist</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- CSS-only phone mockup (decorative, not read aloud) -->
+        <div class="phone" aria-hidden="true">
+          <div class="phone__screen">
+            <div class="task-card">
+              <span class="task-card__label">Today's task</span>
+              <p class="task-card__text">Finish the course module on databases</p>
+              <span class="task-card__check">&#10003;</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Social proof -->
+      <section class="social-proof" aria-label="Who Momentum is for">
+        <p class="social-proof__line">Built for people who work full-time and study on the side.</p>
+        <p class="social-proof__line">You've tried the lists and the calendars. <span class="social-proof__emphasis">Momentum is different</span> — because there's only ever one thing to do.</p>
+      </section>
+
+<!-- Feature highlights / value drivers -->
+      <section class="feature-highlights" aria-label="Core benefits">
+        <div class="feature-highlights__container">
+          <div class="feature-highlight__card">
+            <h3 class="feature-highlight__headline">One task, chosen for you.</h3>
+            <p class="feature-highlight__body">No list of twenty items to feel guilty about. Just the single thing that moves you forward.</p>
+          </div>
+          <div class="feature-highlight__card">
+            <h3 class="feature-highlight__headline">Check it. Done.</h3>
+            <p class="feature-highlight__body">One tap gives you the feeling of a finished task — real progress instead of guilt.</p>
+          </div>
+          <div class="feature-highlight__card">
+            <h3 class="feature-highlight__headline">No guilt trips.</h3>
+            <p class="feature-highlight__body">No streaks, no shaming notifications. Small wins that quietly add up.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- How it works / product demo -->
+      <section class="how-it-works" aria-label="How it works">
+        <h2 class="how-it-works__heading">How it works</h2>
+        <ol class="how-it-works__container">
+          <li class="how-it-works__step">
+            <span class="how-it-works__step-number" aria-hidden="true">1</span>
+            <h3 class="how-it-works__headline">Set it.</h3>
+            <p class="how-it-works__body">Each evening, name the one task that matters most tomorrow.</p>
+          </li>
+          <li class="how-it-works__step">
+            <span class="how-it-works__step-number" aria-hidden="true">2</span>
+            <h3 class="how-it-works__headline">Do it.</h3>
+            <p class="how-it-works__body">Focus on just that one thing. Nothing else to distract you.</p>
+          </li>
+          <li class="how-it-works__step">
+            <span class="how-it-works__step-number" aria-hidden="true">3</span>
+            <h3 class="how-it-works__headline">Check it.</h3>
+            <p class="how-it-works__body">One tap tells the whole day 'done.' Repeat tomorrow.</p>
+          </li>
+        </ol>
+      </section>
+
+      <!-- Pricing / Tiers -->
+      <section class="pricing" aria-label="Pricing and tiers">
+        <div class="pricing__container">
+          <h2 class="pricing__heading">Pricing / Tiers</h2>
+          <p class="pricing__body">Waitlist only — no pricing yet. Mention early access on the waitlist instead.</p>
+        </div>
+      </section>
+
+      <!-- FAQ / Objection Handling -->
+      <section class="faq" aria-label="Frequently asked questions">
+        <h2>Questions?</h2>
+        <div class="faq__item">
+          <button class="faq__question" aria-expanded="false" aria-controls="faq-panel-1">Isn't this just another to-do list?</button>
+          <div class="faq__panel" id="faq-panel-1" hidden>To-do lists hand you everything at once. Momentum hands you one thing.</div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__question" aria-expanded="false" aria-controls="faq-panel-2">Why only one task?</button>
+          <div class="faq__panel" id="faq-panel-2" hidden>Busy people don't fail from lack of planning — they fail from too many options. One task is small enough to actually do.</div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__question" aria-expanded="false" aria-controls="faq-panel-3">What does it cost?</button>
+          <div class="faq__panel" id="faq-panel-3" hidden>It's in private beta. Joining the waitlist gets you early access and a launch-day email.</div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__question" aria-expanded="false" aria-controls="faq-panel-4">Does it sync with my calendar?</button>
+          <div class="faq__panel" id="faq-panel-4" hidden>Not yet. First we're making the one-task habit work perfectly on its own.</div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer / Secondary CTAs -->
+    <footer class="footer">
+      <h2>Ready to finish something?</h2>
+      <a class="btn btn--secondary" href="#waitlist">Join the Waitlist</a>
+      <p class="footer__brand">Momentum — One thing done. Every day.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
